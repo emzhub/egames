@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container" >
+       <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{URL::asset('public/img/ESURF-04.PNG') }}" height="65" class="d-inline-block align-top" alt="">
+                </a> 
+    <div class="row justify-content-center transbox">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
 
@@ -60,30 +64,41 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>
+                              <a class="btn btn-link" href="{{ route('register') }}">
+                                    {{ __('Create New Account?') }} 
+                                </a>
                         </div>
 
-
+  <hr>
+                                        <div class="inline-ul text-center d-flex justify-content-center">
+                                              <a class="p-2 m-2 fa-lg tw-ic" href="{{ route('social.oauth', 'facebook') }}"><i class="fa fa-facebook white-text"></i></a>
+                                            <a class="p-2 m-2 fa-lg li-ic"  href="{{ route('social.oauth', 'google') }}"><i class="fa fa-google white-text"> </i></a>
+                                          <!--   <a class="p-2 m-2 fa-lg tw-ic"><i class="fa fa-twitter white-text"></i></a>
+                                            <a class="p-2 m-2 fa-lg li-ic"><i class="fa fa-linkedin white-text"> </i></a>
+                                            <a class="p-2 m-2 fa-lg ins-ic"><i class="fa fa-instagram white-text"> </i></a> -->
+                                            
+                                        </div>
                     </form>
 
-     <div class="form-group row">
+ <!--     <div class="form-group row">
           <label for="social" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
         <div class="col-md-6 col-md-offset-2">
               <p class="lead text-center">Authenticate using your social network account from one of following providers</p>
                     <a href="{{ route('social.oauth', 'facebook') }}" class="btn btn-primary btn-block">
                         Login with Facebook
-                    </a>
+                    </a> -->
                     <!-- <a href="{{ route('social.oauth', 'twitter') }}" class="btn btn-info btn-block">
                         Login with Twitter
                     </a> -->
-                    <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-block">
+                  <!--   <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-block">
                         Login with Google
-                    </a>
+                    </a> -->
                    <!--  <a href="{{ route('social.oauth', 'github') }}" class="btn btn-default btn-block">
                         Login with Github
                     </a> -->
-                    <hr>
+       <!--              <hr>
         </div>
-    </div>
+    </div> -->
                 </div>
             </div>
         </div>
