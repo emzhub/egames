@@ -3,8 +3,8 @@
 @section('content')
 <div class="container" >
        <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{URL::asset('public/img/ESURF-04.PNG') }}" height="65" class="d-inline-block align-top" alt="">
-                </a> 
+                    <img src="{{URL::asset('img/ESURF-04.PNG') }}" height="65" class="d-inline-block align-top" alt="">
+                </a>
     <div class="row justify-content-center transbox">
         <div class="col-md-8">
             <div class="card">
@@ -65,7 +65,7 @@
                                 </a>
                             </div>
                               <a class="btn btn-link" href="{{ route('register') }}">
-                                    {{ __('Create New Account?') }} 
+                                    {{ __('Create New Account?') }}
                                 </a>
                         </div>
 
@@ -76,7 +76,7 @@
                                           <!--   <a class="p-2 m-2 fa-lg tw-ic"><i class="fa fa-twitter white-text"></i></a>
                                             <a class="p-2 m-2 fa-lg li-ic"><i class="fa fa-linkedin white-text"> </i></a>
                                             <a class="p-2 m-2 fa-lg ins-ic"><i class="fa fa-instagram white-text"> </i></a> -->
-                                            
+
                                         </div>
                     </form>
 
