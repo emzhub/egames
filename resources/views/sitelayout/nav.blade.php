@@ -2,7 +2,7 @@
 
  <nav class="navbar hidden-sm fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
     <logo>
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{URL::asset('img/ESURF-04.PNG') }}" height="75" class="d-inline-block align-top" alt="">
 
         </a>
@@ -18,13 +18,13 @@
 
                                                 <ul class="navbar-nav mr-auto pull-left">
                                                <li class="nav-item active">
-                                                    <a class="nav-link " href="index.html"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">HEAD-TO-HEAD</b> <span class="sr-only">(current)</span></a>
+                                                    <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">HEAD-TO-HEAD</b> <span class="sr-only">(current)</span></a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="tournaments.html"><i class="fa fa-trophy text-dark"></i><b class="text-dark">TOURNAMENTS</b></a>
+                                                    <a class="nav-link" href="{{ url('tournaments') }}"><i class="fa fa-trophy text-dark"></i><b class="text-dark">TOURNAMENTS</b></a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="my_games.html"><i class="fa  fa-home text-dark"></i><b class="text-dark">MY GAMES</b></a>
+                                                    <a class="nav-link" href="{{ url('my_games') }}"><i class="fa  fa-home text-dark"></i><b class="text-dark">MY GAMES</b></a>
                                                 </li>
 
                                             </ul>
@@ -38,15 +38,15 @@
                      <div class="dropdown-menu dropdown-primary" portlet-body chat-widget" style="overflow-y: auto; width: 230px; height: 300px;"" aria-labelledby="navbarDropdownMenuLink">
 
 
-                         <a href="create_tournaments.html"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+                         <a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
 
-                         </a><hr><a href="create_tournaments.html"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+                         </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
 
-                         </a><hr><a href="create_tournaments.html"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+                         </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
 
-                         </a><hr><a href="create_tournaments.html"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+                         </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
 
-                         </a><hr><a href="create_tournaments.html"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+                         </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
 
                          </a><hr>
 
@@ -59,10 +59,10 @@
                     <i class="fa fa-cog text-dark"></i></a>
                      <div class="dropdown-menu dropdown-primary " portlet-body chat-widget" style="overflow-y: auto; width: 200px; height: 300px;"" aria-labelledby="navbarDropdownMenuLink">
 
-                         <hr><a href="deposit.html"> <h6 class="text-dark"><i class="fa fa-money"></i>&nbsp;&nbsp;<b class="text-dark">Deposit</b></h6>
-                         </a><hr><a href="transaction_history.html"> <h6 class="text-dark"><i class="fa fa-list"></i>&nbsp;<b class="text-dark">Transaction History</b></h6>
-                         </a><hr><a href="F.A.Q.html"> <h6 class="text-dark"><i class="fa fa-comment"></i>&nbsp;&nbsp;<b class="text-dark">FAQ</b></h6>
-                         </a><hr><a href="account_settings.html"> <h6 class="text-dark"><i class="fa fa-cog"></i>&nbsp;&nbsp;<b class="text-dark">Account Settings</b></h6>
+                         <hr><a href="{{ url('deposit')}}"> <h6 class="text-dark"><i class="fa fa-money"></i>&nbsp;&nbsp;<b class="text-dark">Deposit</b></h6>
+                         </a><hr><a href="{{ url('transaction_history')}}"> <h6 class="text-dark"><i class="fa fa-list"></i>&nbsp;<b class="text-dark">Transaction History</b></h6>
+                         </a><hr><a href="{{ url('FAQ')}}"> <h6 class="text-dark"><i class="fa fa-comment"></i>&nbsp;&nbsp;<b class="text-dark">FAQ</b></h6>
+                         </a><hr><a href="{{ url('account_settings')}}"> <h6 class="text-dark"><i class="fa fa-cog"></i>&nbsp;&nbsp;<b class="text-dark">Account Settings</b></h6>
                          </a><hr>
 
                 </div>
@@ -75,7 +75,7 @@
                         <div class="dropdown-menu dropdown-primary " portlet-body chat-widget" style="overflow-y: auto; width: 230px; height: 220px;"" aria-labelledby="navbarDropdownMenuLink">
 
                             <a href="#"  data-toggle="modal" data-target="#modalLRForm"><p class="white-text"> <i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Create match</b></p></a><hr>
-                            <a href="create_tournaments.html"  >&nbsp;&nbsp;<p class="text-dark"> <i class="fa fa-trophy text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Tournament</b></p></a><hr>
+                            <a href="{{ url('create_tournaments')}}"  >&nbsp;&nbsp;<p class="text-dark"> <i class="fa fa-trophy text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Tournament</b></p></a><hr>
                 </div>
 
                 </li>
@@ -137,7 +137,7 @@
 
             </li>
 
-              
+
 
               <li class="nav-item">
                 <a class="nav-link" href="Profile.html"><i class="fa  fa-user text-dark"></i></a>

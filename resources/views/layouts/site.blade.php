@@ -3,9 +3,9 @@
 
             @include('sitelayout.nav')
 
-                              <div class="content-wrapper">
+                              <!-- <div class="content-wrapper"> -->
                                 <!-- Main content -->
-                                     <section class="content">
+                                     <!-- <section class="content"> -->
 
                                    @yield('content')
                                    <!-- About Section -->
@@ -13,9 +13,9 @@
               <!-- <section id="profile" class="signup-section">
               </section> -->
                                      @yield('footer')
-                                  </section>
+                                  <!-- </section>
                            </div>
-                      <br>
+                      <br> -->
 
             @include('sitelayout.footer')
 

@@ -17,6 +17,7 @@
         <li data-target="#carousel-example-2" data-slide-to="2"></li>
         <li data-target="#carousel-example-2" data-slide-to="3"></li>
         <li data-target="#carousel-example-2" data-slide-to="4"></li>
+        <li data-target="#carousel-example-2" data-slide-to="5"></li>
     </ol>
     <!--/.Indicators-->
     <!--Slides-->
@@ -34,7 +35,18 @@
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" src="{{URL::asset('img/nba2k.jpg') }}" alt="Second slide">
+                <img class="d-block w-100" src="{{URL::asset('img/nbanew.jpg') }}" alt="Second slide">
+                <div class="mask rgba-black-light"></div>
+            </div>
+            <div class="carousel-caption">
+                <h3 class="h3-responsive">WELCOME TO ESURF GAMES</h3>
+                <p>Where gamers live</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+                <img class="d-block w-100" src="{{URL::asset('img/candn.jpg') }}" alt="Second slide">
                 <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">
@@ -56,7 +68,7 @@
            <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" src="{{URL::asset('img/shark.jpg') }}" alt="Third slide">
+                <img class="d-block w-100" src="{{URL::asset('img/nnnnn.jpg') }}" alt="Third slide">
                 <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">

@@ -68,6 +68,30 @@ class HomeController extends Controller
  //        //                   ->get();
          return view('welcome');
     }
+    public function show_deposit()
+
+    {
+        return view('pages.deposit');
+
+    }
+public function show_transaction_history()
+{
+    return view('pages.transaction_history');
+}
+
+public function show_FAQ()
+{
+  return view('pages.FAQ');
+}
+public function show_account_settings()
+{
+    return view('pages.account_settings');
+}
+
+
+
+
+
 public function load_topic($name,$id)
 {
 
