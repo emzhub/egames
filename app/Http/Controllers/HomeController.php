@@ -38,6 +38,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        return view('auth.login');
       //$topicname= sub_industries::find(1);
 
  // $gt=industries::find(1);
@@ -49,9 +50,24 @@ class HomeController extends Controller
  //        // $additional_info = sub_industries::
  //        //                   where('sub_in_id',$additional_info->sub_in_id)
  //        //                   ->get();
-        return view('welcome');
+        // return view('welcome');
     }
+    public function home()
+    {
 
+      //$topicname= sub_industries::find(1);
+
+ // $gt=industries::find(1);
+ //        $post = comments::find(1);
+ //      $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
+ //      $items = industries::all(['ind_id', 'name']);
+ //      //$additional_info = topics::orderBy('id', 'desc')->take(5)->get();
+ //       $additional_info = topics::orderBy('id', 'desc')->paginate(5);
+ //        // $additional_info = sub_industries::
+ //        //                   where('sub_in_id',$additional_info->sub_in_id)
+ //        //                   ->get();
+         return view('welcome');
+    }
 public function load_topic($name,$id)
 {
 

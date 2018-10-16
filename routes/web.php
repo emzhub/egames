@@ -22,7 +22,7 @@ Route::get('/','HomeController@index');
 
 Auth::routes();
 
-Route::get('/welcome', 'HomeController@index')->name('welcome');
+Route::get('/welcome', 'HomeController@home')->name('welcome');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
   Route::get('/admin', 'AdminController@admin')->middleware('admin')->name('admin');
