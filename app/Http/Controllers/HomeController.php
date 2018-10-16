@@ -88,6 +88,10 @@ public function show_account_settings()
     return view('pages.account_settings');
 }
 
+public function show_create_tournaments()
+{
+    return view('pages.create_tournaments');
+}
 
 
 

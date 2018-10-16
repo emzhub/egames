@@ -35,6 +35,7 @@ Route::group([ 'middleware' => [ 'auth'] ], function()
   Route::get('/transaction_history', 'HomeController@show_transaction_history')->name('history');
   Route::get('/FAQ', 'HomeController@show_FAQ')->name('FAQ');
     Route::get('/account_settings', 'HomeController@show_account_settings')->name('account_settings');
+      Route::get('/create_tournaments', 'HomeController@show_create_tournaments')->name('create_tournaments');
 // Route::get('/create_industry', 'AdminController@create_industry')->name('industry');
 // Route::post('/store_industry','AdminController@store_industry')->name('store_industry');
 // Route::get('/create_sub_industry', 'AdminController@create_sub_industry')->name('_industry');
