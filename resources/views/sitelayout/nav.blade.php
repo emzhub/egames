@@ -107,7 +107,7 @@
 
 
             @unless (Auth::check())
-            <ul class="navbar-nav mr-auto pull-lef">
+           <!--  <ul class="navbar-nav mr-auto pull-lef"> -->
            <!-- <li class="nav-item active">
                 <a class="nav-link " href="index.html"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">HEAD-TO-HEAD</b> <span class="sr-only">(current)</span></a>
             </li>
@@ -118,7 +118,7 @@
                 <a class="nav-link" href="my_games.html"><i class="fa  fa-home text-dark"></i><b class="text-dark">MY GAMES</b></a>
             </li> -->
 
-        </ul>
+       <!--  </ul>
 
         <ul class="navbar-nav nav-flex-icons">
 
@@ -154,7 +154,7 @@
 
 
             </li>
-        </ul>
+        </ul> -->
             @endunless
 
 

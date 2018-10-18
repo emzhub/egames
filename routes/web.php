@@ -22,7 +22,7 @@ Route::get('/','HomeController@index');
 
 Auth::routes();
 
-Route::get('/welcome', 'HomeController@home')->name('welcome');
+
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
   Route::get('/admin', 'AdminController@admin')->middleware('admin')->name('admin');
@@ -31,6 +31,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group([ 'middleware' => [ 'auth'] ], function()
 {
+	Route::get('/welcome', 'HomeController@home')->name('welcome');
   Route::get('/deposit', 'HomeController@show_deposit')->name('deposit');
   Route::get('/transaction_history', 'HomeController@show_transaction_history')->name('history');
   Route::get('/FAQ', 'HomeController@show_FAQ')->name('FAQ');

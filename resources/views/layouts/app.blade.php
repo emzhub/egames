@@ -14,7 +14,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-     <link rel="stylesheet" href="{{URL::asset('css/font-awesome.min.css')}}">
+     <!-- <link rel="stylesheet" href="{{URL::asset('css/font-awesome.min.css')}}"> -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
