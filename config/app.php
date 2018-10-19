@@ -124,6 +124,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+         jpmurray\LaravelCountdown\CountdownServiceProvider::class,
          Laravel\Socialite\SocialiteServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -179,6 +180,7 @@ return [
     */
 
     'aliases' => [
+       'Countdown' => jpmurray\LaravelCountdown\Facades\CountdownFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Emoji' => Unicodeveloper\Emoji\Facades\Emoji::class,
         'LaravelEmojiOne' => ChristofferOK\LaravelEmojiOne\LaravelEmojiOneFacade::class,

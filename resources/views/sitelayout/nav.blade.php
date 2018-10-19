@@ -15,7 +15,7 @@
           @if(Auth::user()->isAdmin())
           <ul class="navbar-nav mr-auto pull-left">
          <li class="nav-item active">
-              <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">Create Games Details</b> <span class="sr-only">(current)</span></a>
+              <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">Create Games Details {{ Auth::user()->name }}</b> <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="{{ url('tournaments') }}"><i class="fa fa-trophy text-dark"></i><b class="text-dark">TOURNAMENTS</b></a>
@@ -96,8 +96,9 @@
                         @elseif(Auth::user()->isGuest())
 
                                                 <ul class="navbar-nav mr-auto pull-left">
+                                                  <!-- welcome {{ Auth::user()->name }} -->
                                                <li class="nav-item active">
-                                                    <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">HEAD-TO-HEAD</b> <span class="sr-only">(current)</span></a>
+                                                    <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">HEAD-TO-HEAD </b> <span class="sr-only">(current)</span></a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="{{ url('tournaments') }}"><i class="fa fa-trophy text-dark"></i><b class="text-dark">TOURNAMENTS</b></a>
