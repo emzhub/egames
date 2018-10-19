@@ -7,12 +7,19 @@
 
                                    @yield('content')
                                    <!-- About Section -->
+
+
  <section>
 
 @include('layouts.caro')
 <!--/.Carousel Wrapper-->
 <!--/.Carousel Wrapper-->
    <br>
+   @auth
+   @if(Auth::user()->isAdmin())
+
+
+       @elseif(Auth::user()->isGuest())
     <!-- Start your project here-->
     <div class="container well">
    <div class="row">
@@ -267,6 +274,8 @@
         </div>
        <br>
        <br>
+
+
     <div class="card text-center">
     <div class="card-header mdb-color darken-3 black-text">
 
@@ -365,6 +374,9 @@
     </div>
 
 </div>
+
+
+
    <br>
    <div class="card text-center">
     <div class="card-header mdb-color darken-3 white-text">
@@ -610,7 +622,10 @@
 
                </div>
                </div>
-
+               @else
+                   I don't have any records!
+               @endif
+               @endauth
 
 
                                      @yield('footer')
