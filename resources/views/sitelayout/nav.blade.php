@@ -13,7 +13,86 @@
 
           @auth
           @if(Auth::user()->isAdmin())
+          <ul class="navbar-nav mr-auto pull-left">
+         <li class="nav-item active">
+              <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">Create Games Details</b> <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url('tournaments') }}"><i class="fa fa-trophy text-dark"></i><b class="text-dark">TOURNAMENTS</b></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url('my_games') }}"><i class="fa  fa-home text-dark"></i><b class="text-dark">MY GAMES</b></a>
+          </li>
 
+        </ul>
+
+        <ul class="navbar-nav nav-flex-icons">
+
+<!--
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-bell text-dark"></i></a>
+        <div class="dropdown-menu dropdown-primary" portlet-body chat-widget" style="overflow-y: auto; width: 230px; height: 300px;"" aria-labelledby="navbarDropdownMenuLink">
+
+
+        <a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+
+        </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+
+        </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+
+        </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+
+        </a><hr><a href="{{ url('create_tournaments')}}"> <span class="small pull-right text-warning">12:23 PM</span><p class="text-dark">Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
+
+        </a><hr>
+
+
+        </div>
+
+        </li> -->
+        <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-cog text-dark"></i></a>
+        <div class="dropdown-menu dropdown-primary " portlet-body chat-widget" style="overflow-y: auto; width: 200px; height: 300px;"" aria-labelledby="navbarDropdownMenuLink">
+
+        <hr><a href="{{ url('deposit')}}"> <h6 class="text-dark"><i class="fa fa-money"></i>&nbsp;&nbsp;<b class="text-dark">Deposit</b></h6>
+        </a><hr><a href="{{ url('transaction_history')}}"> <h6 class="text-dark"><i class="fa fa-list"></i>&nbsp;<b class="text-dark">Transaction History</b></h6>
+        </a><hr><a href="{{ url('FAQ')}}"> <h6 class="text-dark"><i class="fa fa-comment"></i>&nbsp;&nbsp;<b class="text-dark">FAQ</b></h6>
+        </a><hr><a href="{{ url('account_settings')}}"> <h6 class="text-dark"><i class="fa fa-cog"></i>&nbsp;&nbsp;<b class="text-dark">Account Settings</b></h6>
+        </a><hr>
+
+        </div>
+
+        </li> -->
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-gamepad text-dark"></i></a>
+        <div class="dropdown-menu dropdown-primary " portlet-body chat-widget" style="overflow-y: auto; width: 230px; height: 220px;"" aria-labelledby="navbarDropdownMenuLink">
+
+        <a href="#"  data-toggle="modal" data-target="#modalLRForm"><p class="white-text"> <i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Create match</b></p></a><hr>
+        <a href="{{ url('create_tournaments')}}"  >&nbsp;&nbsp;<p class="text-dark"> <i class="fa fa-trophy text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Tournament</b></p></a><hr>
+        </div>
+
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="Profile.html"><i class="fa  fa-user text-dark"></i></a>
+        </li>
+        <li class="nav-item">
+
+        <a class="nav-link" href="{{route('logout') }}"><i class="fa fa-power-off text-dark"></i><b class="text-dark"></b></a>
+        <form id="logout-form" action="{{route('logout') }}" method="POST" style="display: none;">
+        @csrf
+        </form>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link"><i class="far fa-money-bill-alt text-dark"></i>&nbsp;<u><b class="text-dark">$ 6.70</b></u></a>
+
+
+        </li>
+        </ul>
                         @elseif(Auth::user()->isGuest())
 
                                                 <ul class="navbar-nav mr-auto pull-left">
@@ -85,7 +164,7 @@
                 </li>
                  <li class="nav-item">
 
-              <a class="nav-link" href="{{route('logout') }}">{{ __('Logout') }}</a>
+              <a class="nav-link" href="{{route('logout') }}"><i class="fa fa-power-off text-dark"></i><b class="text-dark"></b></a>
              <form id="logout-form" action="{{route('logout') }}" method="POST" style="display: none;">
                  @csrf
              </form>
