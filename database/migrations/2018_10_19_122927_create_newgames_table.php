@@ -13,10 +13,12 @@ class CreateNewgamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('newgames', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+        // Schema::create('newgames', function (Blueprint $table) {
+        //     $table->increments('id');
+        //      $table->integer('console_id');
+        //      $table->string('name');
+        //     $table->timestamps();
+        // });
     }
 
     /**

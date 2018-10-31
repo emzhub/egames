@@ -1,15 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\industries;
-use App\comments;
-use App\sub_industries;
-use App\topics;
 use App\User;
-use App\Rating;
-use App\Chirp;
-use App\Like;
-use App\replycomment;
+use App\games;
+use App\team;
+use App\newgame;
+use App\newmatch;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
@@ -55,18 +51,16 @@ class HomeController extends Controller
     public function home()
     {
 
-      //$topicname= sub_industries::find(1);
-
- // $gt=industries::find(1);
  //        $post = comments::find(1);
- //      $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
- //      $items = industries::all(['ind_id', 'name']);
+     $games = games::all(['game_id', 'name']);
+      $console = newgame::all(['console_id', 'name']);
+          $team = team::all(['team_id', 'name']);
  //      //$additional_info = topics::orderBy('id', 'desc')->take(5)->get();
  //       $additional_info = topics::orderBy('id', 'desc')->paginate(5);
  //        // $additional_info = sub_industries::
  //        //                   where('sub_in_id',$additional_info->sub_in_id)
  //        //                   ->get();
-         return view('welcome');
+         return view('welcome',compact('games',$games,'console',$console,'team',$team));
     }
     public function show_deposit()
 
@@ -93,7 +87,30 @@ public function show_create_tournaments()
     return view('pages.create_tournaments');
 }
 
+public function store_match(Request $request)
+{
+  $this->validate($request, [
+               'team_id' => 'required|numeric|min:0',
+            'challange' => 'required|string|max:60',
+            'console' => 'required|numeric|min:0',
+            'games' => 'required|numeric|min:0',
+         'price' => 'required|string|max:60',
+            'level' => 'required|string|max:60',
+            'team' => 'required|numeric|min:0',
+             'time' => 'required|string|max:60',
+              'attack' =>'required|numeric|min:0',
+        ]);
 
+  $post = newmatch::create(array(
+           'game_id' => mt_rand(13, rand(100, 99999990)),
+           'name' => $cat_name
+           // 'author' => Auth::user()->id
+       ));
+        
+        $message ='New Match has been successfully added!';
+      return redirect()->back()->with('status', $message);
+
+}
 
 
 public function load_topic($name,$id)

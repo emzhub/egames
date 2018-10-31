@@ -2,7 +2,7 @@
 
  <nav class="navbar hidden-sm fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
     <logo>
-          <a class="navbar-brand" href="{{ url('/') }}">
+          <a class="navbar-brand" href="{{ url('/welcome') }}">
             <img src="{{URL::asset('img/ESURF-04.PNG') }}" height="75" class="d-inline-block align-top" alt="">
 
         </a>
@@ -15,7 +15,7 @@
           @if(Auth::user()->isAdmin())
           <ul class="navbar-nav mr-auto pull-left">
          <li class="nav-item active">
-              <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">Create Games Details {{ Auth::user()->name }}</b> <span class="sr-only">(current)</span></a>
+              <a class="nav-link " href="{{ url('/') }}"><i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;<b class="text-dark">{{ Auth::user()->name }}</b> <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="{{ url('tournaments') }}"><i class="fa fa-trophy text-dark"></i><b class="text-dark">TOURNAMENTS</b></a>
@@ -71,8 +71,9 @@
         <i class="fa fa-gamepad text-dark"></i></a>
         <div class="dropdown-menu dropdown-primary " portlet-body chat-widget" style="overflow-y: auto; width: 230px; height: 220px;"" aria-labelledby="navbarDropdownMenuLink">
 
-        <a href="#"  data-toggle="modal" data-target="#modalLRForm"><p class="white-text"> <i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Create match</b></p></a><hr>
-        <a href="{{ url('create_tournaments')}}"  >&nbsp;&nbsp;<p class="text-dark"> <i class="fa fa-trophy text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Tournament</b></p></a><hr>
+        <a href="{{route('Add_Console') }}"><p class="white-text"> <i class="fa fa-american-sign-language-interpreting text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Add Console</b></p></a><hr>
+        <a href="{{ route('Add_Games')}}"  >&nbsp;&nbsp;<p class="text-dark"> <i class="fa fa-trophy text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Add Game</b></p></a><hr>
+          <a href="{{ route('Add_Team')}}"  >&nbsp;&nbsp;<p class="text-dark"> <i class="fa fa-trophy text-dark"></i>&nbsp;&nbsp;<b class="text-dark">Add Team</b></p></a><hr>
         </div>
 
         </li>

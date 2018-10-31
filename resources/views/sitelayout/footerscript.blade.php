@@ -3,7 +3,7 @@
 <script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
 <script src="{{URL::asset('js/mdb.min.js')}}"></script>
 <script src="{{URL::asset('js/mdb.js')}}"></script>
-
+<script src="{{URL::asset('js/script.js')}}"></script>
 <?php //include('js/custom.php'); ?>
   </section>
 </body>

@@ -23,7 +23,7 @@
    <div class="col-md-9">
 
      <!-- Nav tabs -->
-     <ul class="nav nav-tabs md-tabs nav-justified">
+     <!-- <ul class="nav nav-tabs md-tabs nav-justified">
          <li class="nav-item">
              <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Add Console</a>
          </li>
@@ -33,13 +33,13 @@
          <li class="nav-item">
              <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Add  Team</a>
          </li>
-     </ul>
+     </ul> -->
      <!-- Tab panels -->
-     <div class="tab-content card">
-         <!--Panel 1-->
-         <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+     <!-- <div class="tab-content card"> -->
+
+         <!-- <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
              <br>
-             <!--Body-->
+
              <div class="modal-body mdb-color darken-3  ">
                  <div class="md-form form-sm mb-5">
                      <i class="fa fa-user prefix"></i>
@@ -79,14 +79,14 @@
                  </div>
 
              </div>
-             <!--Footer-->
+
              <div class="modal-footer">
 
              </div>
-         </div>
+         </div> -->
          <!--/.Panel 1-->
          <!--Panel 2-->
-         <div class="tab-pane fade" id="panel2" role="tabpanel">
+         <!-- <div class="tab-pane fade" id="panel2" role="tabpanel">
              <br>
              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
                  reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
@@ -95,16 +95,15 @@
                  reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
                  porro voluptate odit minima.</p>
          </div>
-         <!--/.Panel 2-->
-         <!--Panel 3-->
+
          <div class="tab-pane fade" id="panel3" role="tabpanel">
              <br>
              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
                  reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
                  porro voluptate odit minima.</p>
          </div>
-         <!--/.Panel 3-->
-     </div>
+
+     </div> -->
 
 
    </div>
@@ -365,8 +364,9 @@
                                         <h6 class="media-heading">Jane Smith
                                             <span class="small pull-right">12:23 PM</span>
                                         </h6><hr>
-                                        <p>Hi, I wanted to make sure you got the latest product report. Did Roddy get it to you?</p>
-                                    </div>
+                                      
+
+  </div>
                                 </div>
                             </div>
                         </div>
@@ -555,49 +555,54 @@
 
                         <!--Body-->
                         <div class="modal-body mb-1">
+                                 <form id="" role="form"  method="POST" action="{{route('store_match')}}">
+                        @csrf
                             <div class="md-form form-sm mb-5">
 
-<select class="mdb-select">
+<select class="mdb-select" name="challange">
     <option value="" disabled selected> Match Option</option>
 
-    <option value="2">Open challange</option>
-    <option value="3">Direct challenge</option>
+    <option value="Open challange">Open challange</option>
+    <option value="Direct challenge">Direct challenge</option>
 </select>
-   <select class="mdb-select pull-right">
+   <select class="mdb-select pull-right" name="console">
     <option value="" disabled selected> Choose Console</option>
 
-    <option value="2">Ps4</option>
-    <option value="3">Xboxone</option>
-    <option value="3">Mobile</option>
+       @foreach ($console as  $value)
+        <option value="{{ $value->console_id }}"> {{ $value->name }}</option>
+    @endforeach
 </select>
 
                             </div>
 
                             <div class="md-form form-sm mb-4">
 
-                            <select class="mdb-select">
+                            <select class="mdb-select" name="games">
 
     <option value="" disabled selected> Choose Game</option>
-
-    <option value="2">Fifa 18</option>
-    <option value="3">NBA2k18</option>
-    <option value="3">WWE RAW</option>
+    @foreach ($games as  $value)
+        <option value="{{ $value->game_id }}"> {{ $value->name }}</option>
+    @endforeach
 </select>
 
-
-   <select class="mdb-select pull-right">
+    <div class="pull-right some">
+   <select class="mdb-select" name="price">
 
     <option value="" disabled selected > Bet Prize</option>
 
-    <option value="2" >$5</option>
-    <option value="3">$10</option>
-    <option value="3">$20</option>
-
-                                </select>
+    <option value="$5">$5</option>
+    <option value="$10">$10</option>
+    <option value="$20">$20</option>
+                                 </select><br>
+                                 <a id="post-somer">Select custom price</a>
+                               </div>
                                 <br>
                                 <br>
-                               <div class="pull-right">
-                                <input type="number" class="white-text" placeholder="Enter custom price"></div>
+                               <div class="newsfeeds">
+                             
+                                <input type="number" class="white-text" name="price" placeholder="Enter custom price"><br>
+                                  <a  id="postback-bt">Select Default Price</a> 
+                            </div>
 
                             </div>
 
@@ -608,48 +613,42 @@
                              <h5 class="text-center white-text"><u>GAME RULES</u></h5>
                              <br>
                              <br>
-                            <select class="mdb-select pull-left">
+                            <select name="level" class="mdb-select pull-left">
 
     <option value="" disabled selected> Any Start level</option>
 
-    <option value="2">3 Stars</option>
-    <option value="3">3 1/2 Stars</option>
-    <option value="3">4 Stars </option>
-    <option value="3">4 1/2 Stars</option>
+    <option value="3">3 Stars</option>
+    <option value="3.5">3 1/2 Stars</option>
+    <option value="4">4 Stars </option>
+    <option value="4.5">4 1/2 Stars</option>
 </select>
-   <select class="mdb-select pull-right">
+   <select class="mdb-select pull-right" name="team">
 
     <option value="" disabled selected > Any Team</option>
 
-    <option value="2">Internatonal </option>
-    <option value="3">Club </option>
-    <option value="3">Ultimate </option>
-    <option value="3">EPL</option>
-    <option value="3">La Liga</option>
-    <option value="3">Bundesliga</option>
-    <option value="3">Liga MX</option>
-    <option value="3">MLS</option>
-    <option value="3">Women's Team</option>
+      @foreach ($team as  $value)
+        <option value="{{ $value->team_id }}"> {{ $value->name }}</option>
+    @endforeach
 
 
                                 </select>
                                 <br>
                                 <br>
-                                 <select class="mdb-select pull-left">
+                                 <select class="mdb-select pull-left" name="time">
 
     <option value="" disabled selected> Half lenght</option>
 
-    <option value="2">4 minutes</option>
-    <option value="3">5 minutes</option>
-    <option value="3">6 minutes</option>
-    <option value="3">7 minutes</option>
+    <option value="4 minutes">4 minutes</option>
+    <option value="5 minutes">5 minutes</option>
+    <option value="6 minutes">6 minutes</option>
+    <option value="7 minutes">7 minutes</option>
 </select>
-                            <select class="mdb-select pull-right">
+                            <select class="mdb-select pull-right" name="attack">
 
     <option value="" disabled selected> Legacy Defending</option>
 
-    <option value="2">Not Allowed</option>
-    <option value="3">Allowed</option>
+    <option value="0">Not Allowed</option>
+    <option value="1">Allowed</option>
 </select>
                             </div>
                             <br>
@@ -657,6 +656,7 @@
                            <div class="text-center mt-2">
                                 <button class="btn btn-info">Create Match <i class="fa fa-sign-in ml-1"></i></button>
                             </div>
+                                    </form>
                         </div>
                     <!--/.Panel 7-->
 
@@ -684,3 +684,6 @@
             @include('sitelayout.footer')
 
 @include('sitelayout.footerscript')
+<script type="text/javascript">
+   
+</script>

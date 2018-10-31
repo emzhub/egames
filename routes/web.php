@@ -35,8 +35,15 @@ Route::group([ 'middleware' => [ 'auth'] ], function()
   Route::get('/deposit', 'HomeController@show_deposit')->name('deposit');
   Route::get('/transaction_history', 'HomeController@show_transaction_history')->name('history');
   Route::get('/FAQ', 'HomeController@show_FAQ')->name('FAQ');
-    Route::get('/account_settings', 'HomeController@show_account_settings')->name('account_settings');
-      Route::get('/create_tournaments', 'HomeController@show_create_tournaments')->name('create_tournaments');
+  Route::get('/account_settings', 'HomeController@show_account_settings')->name('account_settings');
+  Route::get('/create_tournaments', 'HomeController@show_create_tournaments')->name('create_tournaments');
+	Route::get('/Add_Console', 'AdminController@show_Console')->name('Add_Console');
+	Route::get('/Add_Games', 'AdminController@show_Games')->name('Add_Games');
+  	Route::get('/Add_Team', 'AdminController@show_Team')->name('Add_Team');
+    Route::post('/add_console', 'AdminController@save_add_console')->name('add_console');  
+    Route::post('/add_game', 'AdminController@save_add_game')->name('add_game');  
+    Route::post('/add_team', 'AdminController@save_add_team')->name('add_team'); 
+     Route::post('/store_match','HomeController@store_match')->name('store_match'); 
 // Route::get('/create_industry', 'AdminController@create_industry')->name('industry');
 // Route::post('/store_industry','AdminController@store_industry')->name('store_industry');
 // Route::get('/create_sub_industry', 'AdminController@create_sub_industry')->name('_industry');

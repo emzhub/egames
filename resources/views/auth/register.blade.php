@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-     <a class="navbar-brand" href="{{ url('/') }}">
+     <a class="navbar-brand" href="{{ url('/welcome') }}">
                     <img src="{{URL::asset('img/ESURF-04.PNG') }}" height="65" class="d-inline-block align-top" alt="">
                 </a>
     <div class="row justify-content-center">
