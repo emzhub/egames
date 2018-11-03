@@ -84,7 +84,10 @@ public function show_account_settings()
 
 public function show_create_tournaments()
 {
-    return view('pages.create_tournaments');
+  $games = games::all(['game_id', 'name']);
+   $console = newgame::all(['console_id', 'name']);
+       $team = team::all(['team_id', 'name']);
+    return view('pages.create_tournaments',compact('games',$games,'console',$console,'team',$team));
 }
 
 public function store_match(Request $request)
