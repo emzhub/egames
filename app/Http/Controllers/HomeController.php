@@ -89,26 +89,131 @@ public function show_create_tournaments()
 
 public function store_match(Request $request)
 {
+    $l=$request->get('level');
+if(!empty($l)){
   $this->validate($request, [
-               'team_id' => 'required|numeric|min:0',
-            'challange' => 'required|string|max:60',
-            'console' => 'required|numeric|min:0',
-            'games' => 'required|numeric|min:0',
-         'price' => 'required|string|max:60',
+
             'level' => 'required|string|max:60',
             'team' => 'required|numeric|min:0',
              'time' => 'required|string|max:60',
               'attack' =>'required|numeric|min:0',
         ]);
+        $p=$request->get('price');
+        if(!empty($p)){
+        $this->validate($request, [
+
+                  'challange' => 'required|string|max:60',
+                  'console' => 'required|numeric|min:0',
+                  'games' => 'required|numeric|min:0',
+               'price' => 'required|string|max:60',
+                          ]);
+
+        $post = newmatch::create(array(
+                  'user_id' => Auth::user()->id,
+                 'match_id' => mt_rand(13, rand(100, 99999990)),
+                  'challange' => $request->get('challange'),
+                   'console' => $request->get('console'),
+                    'games' => $request->get('games'),
+                     'price' => $request->get('price'),
+                      'level' => $request->get('level'),
+                       'team' => $request->get('team'),
+                        'time' => $request->get('time'),
+                         'legacy_defending' => $request->get('attack')
+                 // 'author' => Auth::user()->id
+             ));
+
+            //   $message ='New Match has been successfully added!';
+            // return redirect()->back()->with('status2', $message);
+        }else
+        {
+        $this->validate($request, [
+
+                  'challange' => 'required|string|max:60',
+                  'console' => 'required|numeric|min:0',
+                  'games' => 'required|numeric|min:0',
+               'custom-price' => 'required|string|max:60',
+      ]);
+
+        $post = newmatch::create(array(
+                  'user_id' => Auth::user()->id,
+                 'match_id' => mt_rand(13, rand(100, 99999990)),
+                  'challange' => $request->get('challange'),
+                   'console' => $request->get('console'),
+                    'games' => $request->get('games'),
+                     'price' => '$'.$request->get('custom-price'),
+                      'level' => $request->get('level'),
+                       'team' => $request->get('team'),
+                        'time' => $request->get('time'),
+                         'legacy_defending' => $request->get('attack')
+                 // 'author' => Auth::user()->id
+             ));
+
+
+        }
+        $message ='New Match has been successfully added!';
+      return redirect()->back()->with('status2', $message);
+}
+else {
+  $p=$request->get('price');
+  if(!empty($p)){
+  $this->validate($request, [
+
+            'challange' => 'required|string|max:60',
+            'console' => 'required|numeric|min:0',
+            'games' => 'required|numeric|min:0',
+         'price' => 'required|string|max:60',
+
+        ]);
 
   $post = newmatch::create(array(
-           'game_id' => mt_rand(13, rand(100, 99999990)),
-           'name' => $cat_name
+            'user_id' => Auth::user()->id,
+           'match_id' => mt_rand(13, rand(100, 99999990)),
+            'challange' => $request->get('challange'),
+             'console' => $request->get('console'),
+              'games' => $request->get('games'),
+               'price' => $request->get('price'),
+                'level' => 0,
+                 'team' => 0,
+                  'time' => 0,
+                   'legacy_defending' => 0
            // 'author' => Auth::user()->id
        ));
-        
-        $message ='New Match has been successfully added!';
-      return redirect()->back()->with('status', $message);
+
+      //   $message ='New Match has been successfully added!';
+      // return redirect()->back()->with('status2', $message);
+  }else
+  {
+  $this->validate($request, [
+
+            'challange' => 'required|string|max:60',
+            'console' => 'required|numeric|min:0',
+            'games' => 'required|numeric|min:0',
+         'custom-price' => 'required|string|max:60',
+
+        ]);
+
+  $post = newmatch::create(array(
+            'user_id' => Auth::user()->id,
+           'match_id' => mt_rand(13, rand(100, 99999990)),
+            'challange' => $request->get('challange'),
+             'console' => $request->get('console'),
+              'games' => $request->get('games'),
+               'price' => '$'.$request->get('custom-price'),
+                'level' => 0,
+                 'team' => 0,
+                  'time' => 0,
+                   'legacy_defending' => 0
+           // 'author' => Auth::user()->id
+       ));
+
+      //   $message ='New Match has been successfully added!';
+      // return redirect()->back()->with('status2', $message);
+  }
+  $message ='New Match has been successfully added!';
+return redirect()->back()->with('status2', $message);
+}
+
+
 
 }
 

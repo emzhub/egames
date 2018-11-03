@@ -139,6 +139,7 @@
 
                         <!--Body-->
                         <div class="modal-body mb-1">
+
                             <div class="md-form form-sm mb-5">
 
 <select class="mdb-select">
@@ -260,6 +261,15 @@
     <!-- Start your project here-->
     <div class="container well">
    <div class="row">
+         <div class="col-md-6 col-md-offset-3"  >
+                @if (session('status2'))
+
+                    <div class="alert alert-success">
+                        {{ session('status2') }}
+                    </div>
+                @endif
+               
+            </div>
     <div class="col-md-9">
 
          <div class="card mdb-color darken-3 text-center z-depth-2">
@@ -552,7 +562,14 @@
 -->
 
                     <div class="tab-pane fade in show active portlet-body chat-widget" id="panel8" role="tabpanel" style="overflow-y: auto; width: auto; height: 500px;">
+  @if (count($errors) > 0)
+                    @foreach ($errors->all() as $error)
 
+                        <div class="alert alert-danger">{{ $error }}</div>
+
+                    @endforeach
+
+                @endif
                         <!--Body-->
                         <div class="modal-body mb-1">
                                  <form id="" role="form"  method="POST" action="{{route('store_match')}}">
@@ -577,11 +594,11 @@
 
                             <div class="md-form form-sm mb-4">
 
-                            <select class="mdb-select" name="games">
+                            <select   class="mdb-select" name="games">
 
     <option value="" disabled selected> Choose Game</option>
     @foreach ($games as  $value)
-        <option value="{{ $value->game_id }}"> {{ $value->name }}</option>
+        <option value="{{ $value->game_id}}"> {{ $value->name }}</option>
     @endforeach
 </select>
 
@@ -600,14 +617,23 @@
                                 <br>
                                <div class="newsfeeds">
                              
-                                <input type="number" class="white-text" name="price" placeholder="Enter custom price"><br>
+                                <input type="number" class="white-text" name="custom-price" placeholder="Enter custom price"><br>
                                   <a  id="postback-bt">Select Default Price</a> 
                             </div>
+                 <!--   <select  onchange="document.getElementById('s_games').style.display='block';" class="mdb-select" name="games">
 
+    <option value="" disabled selected>Game rule</option>
+           <option value="" selected="selected">Select an Option</option>
+                              <option value="1">Not Allowed</option>
+                              <option value="2">Allowed</option>
+</select> -->
+<div id="c">
+        <a  id="postback-games">Set Game For FIFA rulse</a> </div>
                             </div>
-
+  <span id="s_games">
                             <div class="md-form form-sm mb-4">
-<!--                            <hr>-->
+                             <a  id="hid_rules">Hide Game For FIFA rulse</a>      
+                            <hr>
                           <br>
 
                              <h5 class="text-center white-text"><u>GAME RULES</u></h5>
@@ -627,7 +653,7 @@
     <option value="" disabled selected > Any Team</option>
 
       @foreach ($team as  $value)
-        <option value="{{ $value->team_id }}"> {{ $value->name }}</option>
+        <option value="{{$value->team_id}}"> {{ $value->name }}</option>
     @endforeach
 
 
@@ -651,6 +677,8 @@
     <option value="1">Allowed</option>
 </select>
                             </div>
+</span>
+
                             <br>
                             <hr>
                            <div class="text-center mt-2">

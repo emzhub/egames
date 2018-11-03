@@ -15,8 +15,8 @@ class CreateNewmatchesTable extends Migration
     {
         Schema::create('newmatches', function (Blueprint $table) {
               $table->increments('id');
+               $table->integer('user_id');
               $table->integer('match_id');
-              $table->integer('team_id');
               $table->string('challange');
               $table->integer('console');
               $table->integer('games');
@@ -24,7 +24,7 @@ class CreateNewmatchesTable extends Migration
               $table->string('level');
               $table->integer('team');
               $table->string('time');
-              $table->integer('attack');
+              $table->integer('legacy_defending');
             $table->timestamps();
         });
     }
