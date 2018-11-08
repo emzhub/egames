@@ -13,10 +13,15 @@ class CreateNewtournamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('newtournaments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+        // Schema::create('newtournaments', function (Blueprint $table) {
+        //     $table->increments('id');
+        //       $table->integer('user_id');
+        //      $table->integer('tournament_id');
+        //     $table->integer('no_players');
+        //     $table->string('martch_time');
+        //     $table->string('title');
+        //     $table->timestamps();
+        // });
     }
 
     /**

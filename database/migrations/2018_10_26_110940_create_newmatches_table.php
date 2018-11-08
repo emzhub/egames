@@ -13,20 +13,20 @@ class CreateNewmatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('newmatches', function (Blueprint $table) {
-              $table->increments('id');
-               $table->integer('user_id');
-              $table->integer('match_id');
-              $table->string('challange');
-              $table->integer('console');
-              $table->integer('games');
-              $table->string('price');
-              $table->string('level');
-              $table->integer('team');
-              $table->string('time');
-              $table->integer('legacy_defending');
-            $table->timestamps();
-        });
+        // Schema::create('newmatches', function (Blueprint $table) {
+        //       $table->increments('id');
+        //        $table->integer('user_id');
+        //       $table->integer('match_id');
+        //       $table->string('challange');
+        //       $table->integer('console');
+        //       $table->integer('games');
+        //       $table->string('price');
+        //       $table->string('level');
+        //       $table->integer('team');
+        //       $table->string('time');
+        //       $table->integer('legacy_defending');
+        //     $table->timestamps();
+        // });
     }
 
     /**

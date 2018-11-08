@@ -4,9 +4,14 @@
 
 @section('content')
 <!-- Start your project here-->
+<br>
+<br>
 
 <section>
- !--Carousel Wrapper--><!--Carousel Wrapper-->
+<br>
+<br><br>
+<br>
+ <!--Carousel Wrapper-->
 <!--/.Carousel Wrapper-->
 <!--/.Carousel Wrapper-->
 
@@ -14,11 +19,22 @@
    <br>
    <div class="container well">
   <div class="row">
+           <div class="col-md-6 col-md-offset-3"  >
+                @if (session('status3'))
+
+                    <div class="alert alert-success">
+                        {{ session('status3') }}
+                    </div>
+                @endif
+               
+            </div>
   <br>
    <div class="col-md-9">
     <br>
     <br>
     <br>
+       <form id="" role="form"  method="POST" action="{{route('store_settings')}}">
+                        @csrf
         <!--Table-->
 <!--Table-->
 <div class="table-responsive">
@@ -30,87 +46,128 @@
    <!--Table head-->
 
    <!--Table body-->
+        @foreach($exist as $theme)
    <tbody>
+      
        <tr>
            <td>
 
-               <h6>Firstname</h6>
+               <h6>Fullname</h6>
                <br>
-               <p>Godwin</p>
+               <p>{{ Auth::user()->name }}</p>
            </td>
-           <td><h6>Lastname</h6>
+           <td><h6>Username</h6>
            <br>
-               <p>Igbokwe</p>
+               <p>{{ Auth::user()->username }}</p>
            </td>
        </tr>
        <tr>
            <td><h6>City</h6>
            <br>
-           <input type="text">
+           <input type="text" id="city" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ $theme->city }}">
+            @if ($errors->has('city'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
            </td>
            <td><h6>State/Province</h6>
            <br>
-           <input type="text">
+           <input type="text" id="state" class="form-control{{ $errors->has('state') ? ' is-invalid' : '' }}" name="state" value="{{ $theme->state }}">
+            @if ($errors->has('state'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
            </td>
        </tr>
        <tr>
           <td><h6>Zip/Postal code</h6>
            <br>
-           <input type="text">
+           <input type="text" id="zip" class="form-control{{ $errors->has('zip') ? ' is-invalid' : '' }}" name="zip" value="{{ $theme->zip }}">
+            @if ($errors->has('zip'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('zip') }}</strong>
+                                    </span>
+                                @endif
            </td>
             <td><h6>Country</h6>
            <br>
-           <select>
-
-               <option>Nigeria</option>
-               <option>Ghana</option>
-               <option>3</option>
-           </select>
+             <input type="text" id="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" value="{{ $theme->country}}">
+              @if ($errors->has('country'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                                @endif
            </td>
        </tr>
        <tr>
            <td><h6>Gender</h6>
            <br>
-           <select>
+           <select  class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender">
+<option value="" disabled selected>Select Gender</option>
+               <option value="Male">Male</option>
+               <option value="Female">Female</option>
 
-               <option>Male</option>
-               <option>Female</option>
            </select>
+             @if ($errors->has('gender'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
            </td>
            <td>
            <h6>XBOX LIVE GAMERTAG</h6>
            <br>
-           <input type="text">
+           <input type="text"  id="xbox_name" class="form-control{{ $errors->has('xbox_name') ? ' is-invalid' : '' }}" name="xbox_name" value="{{ $theme->xbox_name }}">
+            @if ($errors->has('xbox_name'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('xbox_name') }}</strong>
+                                    </span>
+                                @endif
            </td>
        </tr>
        <tr>
              <td>
            <h6>PSN USERNAME</h6>
            <br>
-           <input type="text">
+           <input type="text" id="psn_name" class="form-control{{ $errors->has('psn_name') ? ' is-invalid' : '' }}" name="psn_name" value="{{ $theme->psn_name }}">
+            @if ($errors->has('psn_name'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('psn_name') }}</strong>
+                                    </span>
+                                @endif
            </td>
              <td>
            <h6>MOBILE GAME ID</h6>
            <br>
-           <input type="text">
+           <input type="text"   id="mobile_id" class="form-control{{ $errors->has('mobile_id') ? ' is-invalid' : '' }}" name="mobile_id" value="{{ $theme->mobile_id }}">
+          @if ($errors->has('mobile_id'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('mobile_id') }}</strong>
+                                    </span>
+                                @endif
            </td>
 
        </tr>
+
    </tbody>
+        @endforeach
    <!--Table body-->
 
 </table>
 </div>
 <div class="row">
 <div class="col-md-8">
-   <a href="email_settings.html" class="text-primary"><u>Email Notification Settings</u></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <a href="change_password.html" class="text-primary"><u>Change password</u></a>
+   <a href="{{ url('email_settings') }}" class="text-primary"><u>Email Notification Settings</u></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a href="{{ route('change_password') }}" class="text-primary"><u>Change password</u></a>
 </div>
 <div class="col-md-4">
 
   <a><button class="btn btn-warning pull-right">Save Changes</button></a>
 </div>
 </div>
+  </form>
 <!--Table-->
        <br>
 

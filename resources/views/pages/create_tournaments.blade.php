@@ -20,14 +20,24 @@
     <!-- Start your project here-->
     <div class="container well">
    <div class="row">
+        <div class="col-md-6 col-md-offset-3"  >
+                @if (session('status2'))
+
+                    <div class="alert alert-success">
+                        {{ session('status2') }}
+                    </div>
+                @endif
+               
+            </div>
    <div class="col-md-9">
        <div class="col-md-1">
 
 
        </div>
        <div class="col-md-8">
+
          <div class="card">
-             <div class="card-header">{{ __('Login') }}</div>
+             <div class="card-header"></div>
              <div class="card-body">
 
          <form id="" role="form"  method="POST" action="{{route('store_tourna')}}">
@@ -39,13 +49,22 @@
 
        <div class="md-form form-sm mb-5">
 
-<select class="mdb-select" name="no_players">
+                             
+<select class="mdb-select"  name="no_players">
 <option value="" disabled selected>Min. PLAYERS TO START</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
-<option value="4"> 4</option>
+<option value="4">4</option>
 </select>
+    @if ($errors->has('no_players'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('no_players') }}</strong>
+                                    </span>
+                                @endif
+                                  <br>
+                                </div>
+                                 <div class="md-form form-sm mb-5">
 
 <select class="mdb-select pull-right" name="martch_time">
 <option value="" disabled selected>TIME TO PLAY MATCH</option>
@@ -54,9 +73,18 @@
 <option value="48 hours">48 hours</option>
 <option value="60 hours"> 60 hours</option>
 </select>
-
+  <br>
+                                @if ($errors->has('martch_time'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('martch_time') }}</strong>
+                                    </span>
+                                @endif
        </div>
-       <label><b class="text-center">TOURNAMENT TITLE</b></label><br><textarea></textarea>
+       <label><b class="text-center">TOURNAMENT TITLE</b></label><br><textarea name="title"></textarea>  @if ($errors->has('title'))
+                                    <span class="alert alert-danger">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
 
        <br>
        <hr>

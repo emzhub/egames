@@ -1,13 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Hash;
 use App\User;
 use App\games;
 use App\team;
 use App\newgame;
 use App\newmatch;
+use App\newtournament;
+use App\account_setting;
 use Illuminate\Http\Request;
 use App\Post;
+use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -72,14 +77,44 @@ public function show_transaction_history()
 {
     return view('pages.transaction_history');
 }
-
+public function show_change_password()
+{
+    return view('auth.passwords.change_password');
+}
 public function show_FAQ()
 {
   return view('pages.FAQ');
 }
+
+
+
+
+
+ public function save_change_password(Request $request){
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            // The passwords matches
+            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+        }
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            //Current password and new password are same
+            return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+        }
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+        ]);
+        //Change Password
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+        return redirect()->back()->with("success","Password changed successfully !");
+    }
+
 public function show_account_settings()
 {
-    return view('pages.account_settings');
+    $user_id=Auth::user()->id;
+  $exist = DB::table('account_settings')->where(['user_id'=>$user_id])->get();
+    return view('pages.account_settings',compact('exist',$exist));
 }
 
 public function show_create_tournaments()
@@ -220,6 +255,88 @@ return redirect()->back()->with('status2', $message);
 
 }
 
+
+public function store_tourna(Request $request){
+  $this->validate($request, [
+
+            'no_players' => 'required|numeric|min:0',
+            'martch_time' => 'required|string|max:60',
+            'title' => 'required|string|max:60',
+
+        ]);
+
+ $post = newtournament::create(array(
+            'user_id' => Auth::user()->id,
+           'tournament_id' => mt_rand(13, rand(100, 99999990)),
+            'no_players' => $request->get('no_players'),
+             'martch_time' => $request->get('martch_time'),
+             'title' => $request->get('title')
+           // 'author' => Auth::user()->id
+       ));
+
+
+   $message ='New Match has been successfully added!';
+return redirect()->back()->with('status2', $message);
+}
+
+
+    public function getUserByUsername($username)
+    {
+        return User::with('users')->wherename($username)->firstOrFail();
+    }
+
+public function store_settings(Request $request)
+{
+  $user_id=Auth::user()->id;
+  $username=Auth::user()->username;
+  $this->validate($request, [
+
+           'city' => 'required|string|max:60',
+          'state' => 'required|string|max:60',
+           'zip' => 'required|string|max:60',
+           'country' => 'required|string|max:60',
+            'gender' => 'required|string|max:60',
+            // 'psn_name' => 'required|string|max:60',
+            // 'mobile_id' => 'required|string|max:60',
+            // 'xbox_name' => 'required|string|max:60',
+         
+
+        ]);
+
+
+
+$exist = DB::table('account_settings')->where(['user_id'=>$user_id])->get();
+if(count($exist)  >0) {
+ $task = account_setting::where('user_id', $user_id)->first()->update($request->all());
+
+ // $input = $request->all();
+
+ //    $task->fill($input)->save();
+ $message ='Account Settings Has Been Successfully Updated!';
+return redirect()->back()->with('status3', $message);
+
+}
+else  {
+    // $data=array('username'=>$username,'password'=>$password);
+    // DB::table('User')->insert($data);
+   $post = account_setting::create(array(
+            'user_id' => Auth::user()->id,
+            'mobile_id' => $request->get('mobile_id') ?: '0',
+             'psn_name' => $request->get('psn_name') ?: '0',
+             'xbox_name' => $request->get('xbox_name') ?: '0',
+             'zip' => $request->get('zip'),
+             'gender' => $request->get('gender'),
+             'country' => $request->get('country'),
+             'state' => $request->get('state'),
+             'city' => $request->get('city')
+       ));
+   $message ='New Match has been successfully added!';
+return redirect()->back()->with('status3', $message);
+}
+
+
+  
+}
 
 public function load_topic($name,$id)
 {

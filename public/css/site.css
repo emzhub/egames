@@ -253,7 +253,7 @@
             background: url("../../img/ronaldo1.jpg")no-repeat center center;
             background-size: cover;
         }
-      .top-nav-collapse {
+        .top-nav-collapse {
             background-color: #3f51b5 !important;
         }
         .navbar:not(.top-nav-collapse) {

@@ -1,4 +1,38 @@
 <?php
+  // <!-- Begin emoji-picker Stylesheets -->
+  // <link rel="stylesheet" href="{{URL::asset('css/font-awesome.min.css')}}">
+  //   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2"> -->
+  //   <!-- Bootstrap core CSS -->
+  //   <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
+  //   <!-- Material Design Bootstrap -->
+  //   <link href="{{URL::asset('css/mdb.min.css')}}" rel="stylesheet">
+  //   <!-- Your custom styles (optional) -->
+  //   <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
+
+
+// public function update(Request $request, $id)
+// {
+//   $User = User::with('user_info')->find($id);
+//   if(!$User) {
+//     return response('User not found', 404);
+//   }
+
+//   $UserInfo = $User->user_info;
+//   if(!$UserInfo) {
+//     $UserInfo = new UserInfo();
+//     $UserInfo->user_id = $id;
+//     $UserInfo->save();
+//   }
+
+//   try {
+//     $values = Input::only($UserInfo->getFillable());
+//     $UserInfo->update($values);
+//   } catch(Exception $ex) {
+//     return response($ex->getMessage(), 400);
+//   }
+// }
+
+
  if (! function_exists('mix')) {
     /**
      * Get the path to a versioned Mix file.
