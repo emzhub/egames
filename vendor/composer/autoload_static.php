@@ -438,6 +438,7 @@ class ComposerStaticInit2eba8c7e70b9d1e995bb7985f99198ba
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\account_setting' => __DIR__ . '/../..' . '/app/account_setting.php',
+        'App\\accountsetting' => __DIR__ . '/../..' . '/app/accountsetting.php',
         'App\\games' => __DIR__ . '/../..' . '/app/games.php',
         'App\\newgame' => __DIR__ . '/../..' . '/app/newgame.php',
         'App\\newmatch' => __DIR__ . '/../..' . '/app/newmatch.php',

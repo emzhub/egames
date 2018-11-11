@@ -70,12 +70,18 @@ class HomeController extends Controller
     public function show_deposit()
 
     {
-        return view('pages.deposit');
+          $games = games::all(['game_id', 'name']);
+      $console = newgame::all(['console_id', 'name']);
+          $team = team::all(['team_id', 'name']);
+        return view('pages.deposit',compact('games',$games,'console',$console,'team',$team));
 
     }
 public function show_transaction_history()
 {
-    return view('pages.transaction_history');
+      $games = games::all(['game_id', 'name']);
+      $console = newgame::all(['console_id', 'name']);
+          $team = team::all(['team_id', 'name']);
+    return view('pages.transaction_history',compact('games',$games,'console',$console,'team',$team));
 }
 public function show_change_password()
 {
@@ -83,9 +89,18 @@ public function show_change_password()
 }
 public function show_FAQ()
 {
-  return view('pages.FAQ');
+      $games = games::all(['game_id', 'name']);
+      $console = newgame::all(['console_id', 'name']);
+          $team = team::all(['team_id', 'name']);
+  return view('pages.FAQ',compact('games',$games,'console',$console,'team',$team));
 }
-
+public function show_Games()
+{
+      $games = games::all(['game_id', 'name']);
+      $console = newgame::all(['console_id', 'name']);
+          $team = team::all(['team_id', 'name']);
+   return view('pages.my_games',compact('games',$games,'console',$console,'team',$team));
+}
 
 
 

@@ -42,6 +42,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\account_setting' => $baseDir . '/app/account_setting.php',
+    'App\\accountsetting' => $baseDir . '/app/accountsetting.php',
     'App\\games' => $baseDir . '/app/games.php',
     'App\\newgame' => $baseDir . '/app/newgame.php',
     'App\\newmatch' => $baseDir . '/app/newmatch.php',

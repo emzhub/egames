@@ -41,6 +41,8 @@ Route::group([ 'middleware' => [ 'auth'] ], function()
 {
 	Route::get('/welcome', 'HomeController@home')->name('welcome');
   Route::get('/deposit', 'HomeController@show_deposit')->name('deposit');
+  Route::get('/my_games', 'HomeController@show_Games')->name('my_games');
+  Route::get('/change_password', 'HomeController@show_change_password')->name('change_password');
   Route::get('/transaction_history', 'HomeController@show_transaction_history')->name('history');
   Route::get('/FAQ', 'HomeController@show_FAQ')->name('FAQ');
   Route::get('/account_settings', 'HomeController@show_account_settings')->name('account_settings');
@@ -48,7 +50,6 @@ Route::group([ 'middleware' => [ 'auth'] ], function()
 	Route::get('/Add_Console', 'AdminController@show_Console')->name('Add_Console');
 	Route::get('/Add_Games', 'AdminController@show_Games')->name('Add_Games');
  	Route::get('/Add_Team', 'AdminController@show_Team')->name('Add_Team');
-  Route::get('/change_password', 'HomeController@show_change_password')->name('change_password');
      Route::post('/add_console', 'AdminController@save_add_console')->name('add_console');
      Route::post('/add_game', 'AdminController@save_add_game')->name('add_game');
      Route::post('/add_team', 'AdminController@save_add_team')->name('add_team');

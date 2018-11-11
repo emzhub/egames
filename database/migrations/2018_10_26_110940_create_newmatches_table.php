@@ -25,6 +25,7 @@ class CreateNewmatchesTable extends Migration
         //       $table->integer('team');
         //       $table->string('time');
         //       $table->integer('legacy_defending');
+      //       $table->integer('status');
         //     $table->timestamps();
         // });
     }
